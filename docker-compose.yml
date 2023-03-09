@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  db:
+    image:
+      postgres:latest
+    restart: always
+    container_name: pg-test
+    environment:
+      POSTGRES_DB: prism
+      POSTGRES_USER: snowden
+      POSTGRES_PASSWORD: nsa
+    volumes:
+      - /root/bdd:/var/lib/postgresql/data
+    networks:
+      - pg-net
+
+networks:
+  pg-net:
+    external: true
+       
+     
